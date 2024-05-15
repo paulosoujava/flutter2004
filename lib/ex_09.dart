@@ -4,6 +4,10 @@ import 'package:flutter/material.dart';
 abstract class TextComponent {
   Widget build( BuildContext context );
 }
+abstract class TextDecorator extends TextComponent {
+  final TextComponent decoratedText;
+  TextDecorator(this.decoratedText);
+}
 
 class SimpleText extends TextComponent {
   final String text;
@@ -15,12 +19,6 @@ class SimpleText extends TextComponent {
     return Text(text);
   }
 }
-
-abstract class TextDecorator extends TextComponent {
-  final TextComponent decoratedText;
-
-  TextDecorator(this.decoratedText);
- }
 
  class BorderText extends TextDecorator{
 
